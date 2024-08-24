@@ -1,0 +1,39 @@
+services:
+  mysql:
+    container_name: ms_mysql
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: stage_db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+    volumes:
+      - mysql:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+  phpmyadmin:
+    container_name: ms_phpmyadmin
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8080:80"
+    networks:
+      - microservices-net
+    restart: unless-stopped
+
+
+
+networks:
+  microservices-net:
+    driver: bridge
+
+volumes:
+  mysql:
