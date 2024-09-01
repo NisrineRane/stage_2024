@@ -517,6 +517,33 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Batch",
+			"item": [
+				{
+					"name": "ExtractCSV",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8081/api/v1/batch/extract",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"api",
+								"v1",
+								"batch",
+								"extract"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
